@@ -13,6 +13,11 @@
             "httpMethod": "PUT",
             "uri": "workspaces/{workspace-id}",
             "summary": "Updating an existing workspace"
+        },
+        "GetUsers": {
+            "httpMethod": "GET",
+            "uri": "users",
+            "summary": "Showing all users in all workspaces"
         }, 
         "GetTasksForWorkspace": {
             "httpMethod": "GET",
