@@ -20,12 +20,11 @@ And run `composer install`
 ## Usage
     
 To use the Asana API Client simply instantiate the client with the api key.
-More information on the key available at the [![developer asana site](http://developer.asana.com/documentation/#Authentication)]
+More information on the key available at http://developer.asana.com/documentation/#Authentication
 
 ```php
 <?php
 
-// Key Authentication
 require dirname(__FILE__).'/../vendor/autoload.php';
 
 use AJT\Asana\AsanaClient;
@@ -76,10 +75,10 @@ You can look at the services.json for details on what methods are available and 
 ## Todo
 
 
-[ ] Complete the service description
-[ ] Add tests
-[ ] Add some more examples
-[ ] Add some Response models
+- [ ] Complete the service description
+- [ ] Add tests
+- [ ] Add some more examples
+- [ ] Add some Response models
 
 ## Contributions welcome
 
