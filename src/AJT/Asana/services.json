@@ -1,0 +1,42 @@
+{
+    "name": "Asana",
+    "apiVersion": "2013-03-29",
+    "baseUrl": "https://app.asana.com/api/1.0",
+    "description": "Asana API",
+    "operations": {
+        "GetWorkspaces": {
+            "httpMethod": "GET",
+            "uri": "workspaces",
+            "summary": "Showing available workspaces"
+        }, 
+        "RenameWorkspace": {
+            "httpMethod": "PUT",
+            "uri": "workspaces/{workspace-id}",
+            "summary": "Updating an existing workspace"
+        }, 
+        "GetTasksForWorkspace": {
+            "httpMethod": "GET",
+            "uri": "tasks?workspace={workspace-id}&assignee=me",
+            "summary": "Gets a list of Tasks for Workspace assigned to me",
+            "parameters": {
+                "workspace-id": {
+                    "location": "uri",
+                    "description": "Workspace ID",
+                    "required": true
+                }
+            }
+        }, 
+        "GetTask": {
+            "httpMethod": "GET",
+            "uri": "tasks/{task-id}",
+            "summary": "Showing a specific task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                }
+            }
+        }
+  	}
+}
