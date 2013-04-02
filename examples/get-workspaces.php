@@ -13,7 +13,7 @@ $asana_client = AsanaClient::factory(array('api_key' => $asana_api_key));
 $workspaces = $asana_client->getWorkspaces(array());
 foreach($workspaces as $workspace){
 	$id = $workspace['id'];
-	print $workspace['name'] . "\n";
+	print $id . " - " . $workspace['name'] . "\n";
 
 	// Get all tasks for this workspace
 	$tasks = $asana_client->getTasksForWorkspace(array('workspace-id' => $id));
