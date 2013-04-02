@@ -5,7 +5,8 @@ An Asana API client based on Guzzle PHP
 
 ## Installation
 
-The library will be available through Composer, so its easy to get it. Simply add this to your `composer.json` file:
+The library is available through Composer, so its easy to get it. 
+Simply add this to your `composer.json` file:
 
     "require": {
         "ajt/guzzle-asana": "dev-master"
