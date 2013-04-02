@@ -4,8 +4,17 @@
     "baseUrl": "https://app.asana.com/api/1.0",
     "description": "Asana API",
     "operations": {
-        "GetWorkspaces": {
+        "abstract": {
             "httpMethod": "GET",
+            "parameters": {
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/json"
+                }
+            }
+        },
+        "GetWorkspaces": {
+            "extends": "abstract",
             "uri": "workspaces",
             "summary": "Showing available workspaces"
         }, 
@@ -15,17 +24,17 @@
             "summary": "Updating an existing workspace"
         },
         "GetUsers": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "users",
             "summary": "Showing all users in all workspaces"
         },
         "GetUsersWithEmail": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "users?opt_fields=name,email",
             "summary": "Showing all users in all workspaces with email addresses"
         }, 
         "GetUser": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "users/{user-id}",
             "summary": "Show a single user",
             "parameters": {
@@ -37,12 +46,12 @@
             }
         },
         "GetUserMe": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "users/me",
             "summary": "Show a single user that is me"
         },
         "GetUsersInWorkspace": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "workspaces/{workspace-id}/users",
             "summary": "Show all users in a single workspace",
             "parameters": {
@@ -54,7 +63,7 @@
             }
         },
         "GetTasksForProject": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "projects/{project-id}/tasks",
             "summary": "Gets a list of Tasks for a project",
             "parameters": {
@@ -66,7 +75,7 @@
             }
         },
         "GetTasksForWorkspace": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "tasks?workspace={workspace-id}&assignee=me",
             "summary": "Gets a list of Tasks for Workspace assigned to me",
             "parameters": {
@@ -78,7 +87,7 @@
             }
         }, 
         "GetTask": {
-            "httpMethod": "GET",
+            "extends": "abstract",
             "uri": "tasks/{task-id}",
             "summary": "Showing a specific task",
             "parameters": {
@@ -101,9 +110,10 @@
                 },
                 "assignee_status": {
                     "location": "postField",
-                    "type": ["string"],
+                    "type": "string",
+                    "enum": ["inbox", "today", "upcoming", "later"],
                     "required": false,
-                    "description": "Scheduling status of this task for the user it is assigned to. One of the following values: inbox   In the inbox. later   Scheduled for later. today   Scheduled for today. upcoming    Marked as upcoming."
+                    "description": "Scheduling status of this task for the user it is assigned to. "
                 },
                 "followers": {
                     "location": "postField",
@@ -133,6 +143,79 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
+                }
+            }
+        },
+        "UpdateTask": {
+            "httpMethod": "PUT",
+            "uri": "tasks/{task-id}",
+            "class": "AJT\\Asana\\Command\\PutCommand",
+            "summary": "Updating an existing task",
+            "responseNotes": "A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task. This method returns the complete updated task record, described above.",
+            "parameters": {
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
+                },
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "assignee": {
+                    "location": "postField",
+                    "type": ["string","integer"],
+                    "required": false
+                },
+                "assignee_status": {
+                    "location": "postField",
+                    "type": ["string"],
+                    "required": false,
+                    "description": "Scheduling status of this task for the user it is assigned to. One of the following values: inbox   In the inbox. later   Scheduled for later. today   Scheduled for today. upcoming    Marked as upcoming."
+                },
+                "followers": {
+                    "location": "postField",
+                    "type": "array",
+                    "required": false
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "workspace": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": false
+                },
+                "due_on": {
+                    "required": false,
+                    "location": "postField",
+                    "type": "string"
+                },
+                "completed":{
+                    "required": false,
+                    "location": "postField",
+                    "type": "integer"
+                }
+            }
+        },
+        "DeleteTask": {
+            "extends": "abstract",
+            "httpMethod": "DELETE",
+            "uri": "tasks/{task-id}",
+            "summary": "Deleting a specific task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
                 }
             }
         }

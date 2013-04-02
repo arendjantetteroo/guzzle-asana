@@ -8,14 +8,17 @@ use Guzzle\Service\Description\ServiceDescription;
 use Guzzle\Plugin\Log\LogPlugin;
 use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
 
+use AJT\Asana\FixPostFieldToBodyPlugin;
+
 /**
  * An Asana Client based on guzzle
  *
- * @link http://developer.asana.com/documentation/#Authentication
+ * @link http://developer.asana.com/documentation
  * @package AJT\Asana
  *
+ * @method array createTask(array $args = array())
+ * @method array deleteTask(array $args = array())
  * @method array getWorkspaces(array $args = array())
- * @method array renameWorkspace(array $args = array())
  * @method array getTasksForWorkspace(array $args = array())
  * @method array getTask(array $args = array())
  * @method array getUsers(array $args = array())
@@ -23,7 +26,9 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getUser(array $args = array())
  * @method array getUserMe(array $args = array())
  * @method array getUsersInWorkspace(array $args = array())
- * 
+ * @method array renameWorkspace(array $args = array())
+ * @method array updateTask(array $args = array())
+ *  
  */
 class AsanaClient extends Client
 {
@@ -35,7 +40,7 @@ class AsanaClient extends Client
      * - base_url: Base URL of web service
      * - api_key: API key
      * 
-     * See http://developer.asana.com/documentation/#Authentication for more information on the api token
+     * @link http://developer.asana.com/documentation/#Authentication for more information on the api token
      *
      * @param array|Collection $config Configuration data
      *
@@ -55,17 +60,12 @@ class AsanaClient extends Client
         $description = ServiceDescription::factory(__DIR__ . '/services.json');
         $client->setDescription($description);
 
-		$client->setDefaultHeaders(array(
-			"Content-type" => "application/json",
-		));
-		
 		$authPlugin = new CurlAuthPlugin($config->get('api_key'), '');
 		$client->addSubscriber($authPlugin);
 
 		if($config->get('debug')){
 			$client->addSubscriber(LogPlugin::getDebugPlugin());	
 		}		
-
         return $client;
     }
 

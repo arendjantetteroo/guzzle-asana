@@ -10,6 +10,7 @@ use AJT\Asana\AsanaClient;
 $asana_client = AsanaClient::factory(array('api_key' => $asana_api_key));
 
 // Get all workspaces
+print "getWorkspaces\n";
 $workspaces = $asana_client->getWorkspaces(array());
 foreach($workspaces as $workspace){
 	$id = $workspace['id'];

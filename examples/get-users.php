@@ -37,6 +37,7 @@ if (count($users) > 0) {
 	}
 }
 
+// Get me
 print "\ngetMe\n";
 	$user = $asana_client->getUserMe(array());
 	print $user['id'] . ' - ' . $user['name'] . ' - ' . $user['email'] . "\n";
@@ -45,6 +46,7 @@ print "\ngetMe\n";
 		print $workspace['id'] . ' - ' . $workspace['name'] . "\n";
 	}
 
+// Get users in workspace
 print "\nGetUsersInWorkspace\n";
 if (isset($user['workspaces']) && count($user['workspaces'] > 0)) {
 	print "Get users in Workspace: " . $user['workspaces'][0]['id'] . "\n";

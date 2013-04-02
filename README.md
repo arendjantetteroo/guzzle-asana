@@ -31,6 +31,9 @@ require dirname(__FILE__).'/../vendor/autoload.php';
 use AJT\Asana\AsanaClient;
 $asana_token = ''; // Fill in your token here
 $asana_client = AsanaClient::factory(array('api_key' => $asana_token));
+
+// if you want to see what is happening, add debug=true to the factory call
+$asana_client = AsanaClient::factory(array('api_key' => $asana_token, 'debug'=> true)); 
 ```
 
 Invoke Commands using our `__call` method (auto-complete phpDocs are included)
