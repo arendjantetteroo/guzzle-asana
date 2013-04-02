@@ -18,7 +18,12 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array renameWorkspace(array $args = array())
  * @method array getTasksForWorkspace(array $args = array())
  * @method array getTask(array $args = array())
- *
+ * @method array getUsers(array $args = array())
+ * @method array getUsersWithEmail(array $args = array())
+ * @method array getUser(array $args = array())
+ * @method array getUserMe(array $args = array())
+ * @method array getUsersInWorkspace(array $args = array())
+ * 
  */
 class AsanaClient extends Client
 {
