@@ -1,17 +1,13 @@
 <?php
 
-/**
- * See http://developer.asana.com/documentation/#Authentication for more information on the api token
- * @var string
- */
-$asana_token = '';
+require dirname(__FILE__). '/../apikey.php';
 
 require dirname(__FILE__).'/../vendor/autoload.php';
 
 use AJT\Asana\AsanaClient;
 
-// Get the asana client with your asana token
-$asana_client = AsanaClient::factory(array('api_key' => $asana_token));
+// Get the asana client with your asana api key
+$asana_client = AsanaClient::factory(array('api_key' => $asana_api_key));
 
 // Get all workspaces
 $workspaces = $asana_client->getWorkspaces(array());
