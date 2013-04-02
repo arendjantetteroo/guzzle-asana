@@ -53,6 +53,18 @@
                 }
             }
         },
+        "GetTasksForProject": {
+            "httpMethod": "GET",
+            "uri": "projects/{project-id}/tasks",
+            "summary": "Gets a list of Tasks for a project",
+            "parameters": {
+                "project-id": {
+                    "location": "uri",
+                    "description": "Project ID",
+                    "required": true
+                }
+            }
+        },
         "GetTasksForWorkspace": {
             "httpMethod": "GET",
             "uri": "tasks?workspace={workspace-id}&assignee=me",
@@ -74,6 +86,53 @@
                     "location": "uri",
                     "description": "Task ID",
                     "required": true
+                }
+            }
+        },
+        "CreateTask": {
+            "httpMethod": "POST",
+            "uri": "tasks",
+            "summary": "Creating a new task",
+            "parameters": {
+                "assignee": {
+                    "location": "postField",
+                    "type": ["string","integer"],
+                    "required": false
+                },
+                "assignee_status": {
+                    "location": "postField",
+                    "type": ["string"],
+                    "required": false,
+                    "description": "Scheduling status of this task for the user it is assigned to. One of the following values: inbox   In the inbox. later   Scheduled for later. today   Scheduled for today. upcoming    Marked as upcoming."
+                },
+                "followers": {
+                    "location": "postField",
+                    "type": "array",
+                    "required": false
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string"
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "workspace": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": true
+                },
+                "due_on": {
+                    "required": false,
+                    "location": "postField",
+                    "type": "string"
+                },
+                "completed":{
+                    "required": false,
+                    "location": "postField",
+                    "type": "integer"
                 }
             }
         }
