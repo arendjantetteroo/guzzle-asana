@@ -69,6 +69,9 @@ foreach($workspaces as $workspace){
 }
 ```
 
+## Examples
+Copy the apikey-dist.php to apikey.php (in the root directory) and add your apikey. 
+Afterwards you can execute the examples in the examples directory. 
 See the examples directory for a workspace with tasks usage example
 
 You can look at the services.json for details on what methods are available and how to call them
