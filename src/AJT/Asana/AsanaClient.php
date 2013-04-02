@@ -8,8 +8,6 @@ use Guzzle\Service\Description\ServiceDescription;
 use Guzzle\Plugin\Log\LogPlugin;
 use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
 
-use AJT\Asana\FixPostFieldToBodyPlugin;
-
 /**
  * An Asana Client based on guzzle
  *
