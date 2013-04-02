@@ -18,7 +18,41 @@
             "httpMethod": "GET",
             "uri": "users",
             "summary": "Showing all users in all workspaces"
+        },
+        "GetUsersWithEmail": {
+            "httpMethod": "GET",
+            "uri": "users?opt_fields=name,email",
+            "summary": "Showing all users in all workspaces with email addresses"
         }, 
+        "GetUser": {
+            "httpMethod": "GET",
+            "uri": "users/{user-id}",
+            "summary": "Show a single user",
+            "parameters": {
+                "user-id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "GetUserMe": {
+            "httpMethod": "GET",
+            "uri": "users/me",
+            "summary": "Show a single user that is me"
+        },
+        "GetUsersInWorkspace": {
+            "httpMethod": "GET",
+            "uri": "workspaces/{workspace-id}/users",
+            "summary": "Show all users in a single workspace",
+            "parameters": {
+                "workspace-id": {
+                    "location": "uri",
+                    "description": "Workspace ID",
+                    "required": true
+                }
+            }
+        },
         "GetTasksForWorkspace": {
             "httpMethod": "GET",
             "uri": "tasks?workspace={workspace-id}&assignee=me",
