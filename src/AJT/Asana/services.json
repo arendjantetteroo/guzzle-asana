@@ -149,7 +149,6 @@
         "UpdateTask": {
             "httpMethod": "PUT",
             "uri": "tasks/{task-id}",
-            "class": "AJT\\Asana\\Command\\PutCommand",
             "summary": "Updating an existing task",
             "responseNotes": "A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task. This method returns the complete updated task record, described above.",
             "parameters": {

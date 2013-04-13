@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "guzzle/guzzle": "~3.3"
+        "guzzle/guzzle": "~3.4"
     },
     "require-dev": {
         "symfony/css-selector": "~2.2",
