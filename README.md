@@ -92,6 +92,7 @@ You can look at the services.json for details on what methods are available and 
 - [ ] Add tests
 - [ ] Add some more examples
 - [ ] Add some Response models
+- [ ] Add an oauth2 example for asana connect
 
 ## Contributions welcome
 
