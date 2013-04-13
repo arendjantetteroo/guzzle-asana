@@ -51,12 +51,16 @@ print_r($task);
 print "updateTask\n";
 $updatedtask = $asana_client->updateTask(
 	array(
-		'name' 			  => 'Updated Asana api test task',
+		'name' 			  => 'Updated Asana api test task 2',
 		'assignee_status' => 'today', 		// One off inbox, later, today or upcoming
 		'task-id' 		  => $taskid,
 	)
 );
 print_r($updatedtask);
+
+// Get subtasks for this task
+$subtask = $asana_client->getSubTasks(array('task-id' => $taskid));
+print_r($subtask);
 
 // Remove the created task
 print "deleteTask\n";

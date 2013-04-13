@@ -217,6 +217,18 @@
                     "required": true
                 }
             }
+        },
+        "GetSubTasks": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/subtasks",
+            "summary": "Showing subtasks of a specific task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                }
+            }
         }
   	}
 }
