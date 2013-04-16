@@ -16,9 +16,14 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  *
  * @method array addProjectComment(array $args = array())
  * @method array addTaskComment(array $args = array())
+ * @method array createProject(array $args = array())
  * @method array createTask(array $args = array())
  * @method array createSubTask(array $args = array()) Creating a new subtask
+ * @method array deleteProject(array $args = array())
  * @method array deleteTask(array $args = array())
+ * @method array getProject(array $args = array()) get a specific project
+ * @method array getProjects(array $args = array()) get all projects (either archived or active)
+ * @method array getProjectsInWorkspace(array $args = array()) get all projects in this workspace
  * @method array getProjectStories(array $args = array()) get all stories of a specific project
  * @method array getStory(array $args = array()) Showing a single story
  * @method array getSubTasks(array $args = array()) Showing subtasks of a specific task
@@ -32,6 +37,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getUsersInWorkspace(array $args = array())
  * @method array getWorkspaces(array $args = array())
  * @method array renameWorkspace(array $args = array())
+ * @method array updateProject(array $args = array()) Update project
  * @method array updateTask(array $args = array())
  */
 class AsanaClient extends Client
