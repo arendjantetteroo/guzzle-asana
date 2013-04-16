@@ -509,6 +509,46 @@
                     "required": false
                 }
             }
+        },
+        "AddTaskFollowers": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/addFollowers",
+            "summary": "Add followers to a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "followers":{
+                    "required": true,
+                    "location": "postField",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "RemoveTaskFollowers": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/removeFollowers",
+            "summary": "Add followers to a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "followers":{
+                    "required": true,
+                    "location": "postField",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
         }
     }
 }

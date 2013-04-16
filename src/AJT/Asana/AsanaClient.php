@@ -17,6 +17,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array addProjectComment(array $args = array())
  * @method array addProjectToTask(array $args = array())
  * @method array addTaskComment(array $args = array())
+ * @method array addTaskFollowers(array $args = array())
  * @method array createProject(array $args = array())
  * @method array createTask(array $args = array())
  * @method array createSubTask(array $args = array()) Creating a new subtask
@@ -39,6 +40,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getUsersInWorkspace(array $args = array())
  * @method array getWorkspaces(array $args = array())
  * @method array removeProjectFromTask(array $args = array())
+ * @method array removeTaskFollowers(array $args = array())
  * @method array renameWorkspace(array $args = array())
  * @method array updateProject(array $args = array()) Update project
  * @method array updateTask(array $args = array())
