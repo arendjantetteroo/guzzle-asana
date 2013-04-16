@@ -41,7 +41,8 @@
                 "user-id": {
                     "location": "uri",
                     "description": "User ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -58,7 +59,8 @@
                 "workspace-id": {
                     "location": "uri",
                     "description": "Workspace ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -70,7 +72,8 @@
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -82,19 +85,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
-                }
-            }
-        },
-        "GetTagsForTask": {
-            "extends": "abstract",
-            "uri": "tasks/{task-id}/tags",
-            "summary": "Gets a list of Tags for a task",
-            "parameters": {
-                "task-id": {
-                    "location": "uri",
-                    "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -106,12 +98,14 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "project": {
                     "location": "postField",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -123,12 +117,65 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "project": {
                     "location": "postField",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
+                }
+            }
+        },
+        "GetTagsForTask": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/tags",
+            "summary": "Gets a list of Tags for a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true,
+                    "type": "integer"
+                }
+            }
+        },
+        "AddTagToTask": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/addTag",
+            "summary": "Add a tag to a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true,
+                    "type": "integer"
+                },
+                "tag": {
+                    "location": "postField",
+                    "description": "Tag ID",
+                    "required": true,
+                    "type": "integer"
+                }
+            }
+        },
+         "RemoveTagFromTask": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/removeTag",
+            "summary": "Remove a tag from a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true,
+                    "type": "integer"
+                },
+                "tag": {
+                    "location": "postField",
+                    "description": "Tag ID",
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -140,7 +187,8 @@
                 "workspace-id": {
                     "location": "uri",
                     "description": "Workspace ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -152,7 +200,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -272,7 +321,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -284,7 +334,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -296,7 +347,8 @@
                 "parent-id": {
                     "location": "uri",
                     "description": "Task ID of parent to add this task to",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "assignee": {
                     "location": "postField",
@@ -349,7 +401,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -361,7 +414,8 @@
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -373,7 +427,8 @@
                 "story-id": {
                     "location": "uri",
                     "description": "Story ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -385,7 +440,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "text":{
                     "required": true,
@@ -402,7 +458,8 @@
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "text":{
                     "required": true,
@@ -457,7 +514,8 @@
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "name": {
                     "location": "postField",
@@ -486,7 +544,8 @@
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
@@ -530,7 +589,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "followers":{
                     "required": true,
@@ -550,7 +610,8 @@
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 },
                 "followers":{
                     "required": true,
@@ -631,7 +692,8 @@
                 "tag-id": {
                     "location": "uri",
                     "description": "Tag ID",
-                    "required": true
+                    "required": true,
+                    "type": "integer"
                 }
             }
         },
