@@ -14,19 +14,25 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @link http://developer.asana.com/documentation
  * @package AJT\Asana
  *
+ * @method array addProjectComment(array $args = array())
+ * @method array addTaskComment(array $args = array())
  * @method array createTask(array $args = array())
+ * @method array createSubTask(array $args = array()) Creating a new subtask
  * @method array deleteTask(array $args = array())
- * @method array getWorkspaces(array $args = array())
+ * @method array getProjectStories(array $args = array()) get all stories of a specific project
+ * @method array getStory(array $args = array()) Showing a single story
+ * @method array getSubTasks(array $args = array()) Showing subtasks of a specific task
  * @method array getTasksForWorkspace(array $args = array())
  * @method array getTask(array $args = array())
+ * @method array getTaskStories(array $args = array()) get all stories of a specific task
  * @method array getUsers(array $args = array())
  * @method array getUsersWithEmail(array $args = array())
  * @method array getUser(array $args = array())
  * @method array getUserMe(array $args = array())
  * @method array getUsersInWorkspace(array $args = array())
+ * @method array getWorkspaces(array $args = array())
  * @method array renameWorkspace(array $args = array())
  * @method array updateTask(array $args = array())
- *  
  */
 class AsanaClient extends Client
 {
@@ -42,7 +48,7 @@ class AsanaClient extends Client
      *
      * @param array|Collection $config Configuration data
      *
-     * @return self
+     * @return AsanaClient
      */
     public static function factory($config = array())
     {
