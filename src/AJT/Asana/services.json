@@ -229,6 +229,59 @@
                     "required": true
                 }
             }
+        },
+        "CreateSubTask": {
+            "httpMethod": "POST",
+            "uri": "tasks/{parent-id}/subtasks",
+            "summary": "Creating a new subtask",
+            "parameters": {
+                "parent-id": {
+                    "location": "uri",
+                    "description": "Task ID of parent to add this task to",
+                    "required": true
+                },
+                "assignee": {
+                    "location": "postField",
+                    "type": ["string","integer"],
+                    "required": false
+                },
+                "assignee_status": {
+                    "location": "postField",
+                    "type": "string",
+                    "enum": ["inbox", "today", "upcoming", "later"],
+                    "required": false,
+                    "description": "Scheduling status of this task for the user it is assigned to. "
+                },
+                "followers": {
+                    "location": "postField",
+                    "type": "array",
+                    "required": false
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string"
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "workspace": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": true
+                },
+                "due_on": {
+                    "required": false,
+                    "location": "postField",
+                    "type": "string"
+                },
+                "completed":{
+                    "required": false,
+                    "location": "postField",
+                    "type": "integer"
+                }
+            }
         }
   	}
 }
