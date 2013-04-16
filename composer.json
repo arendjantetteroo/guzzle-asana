@@ -1,7 +1,9 @@
 {
     "name": "ajt/guzzle-asana",
+    "type": "library",
     "description": "Asana API client written on top of Guzzle PHP.",
     "keywords": ["asana", "ajt", "api", "guzzle"],
+    "homepage": "http://github.com/arendjantetteroo/guzzle-asana",
     "license": "MIT",
     "authors": [
         {
