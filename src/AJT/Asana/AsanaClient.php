@@ -19,6 +19,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array addTaskComment(array $args = array())
  * @method array addTaskFollowers(array $args = array())
  * @method array createProject(array $args = array())
+ * @method array createTag(array $args = array())
  * @method array createTask(array $args = array())
  * @method array createSubTask(array $args = array()) Creating a new subtask
  * @method array deleteProject(array $args = array())
@@ -29,7 +30,11 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getProjectStories(array $args = array()) get all stories of a specific project
  * @method array getStory(array $args = array()) Showing a single story
  * @method array getSubTasks(array $args = array()) Showing subtasks of a specific task
- * @method array getTasksForWorkspace(array $args = array())
+ * @method array getTag(array $args = array())
+ * @method array getTags(array $args = array())
+ * @method array getTagsInWorkspace(array $args = array())
+ * @method array getTasksInWorkspace(array $args = array())
+ * @method array getTasksForTag(array $args = array())
  * @method array getTask(array $args = array())
  * @method array getProjectsForTask(array $args = array())
  * @method array getTaskStories(array $args = array()) get all stories of a specific task
@@ -43,7 +48,9 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array removeTaskFollowers(array $args = array())
  * @method array renameWorkspace(array $args = array())
  * @method array updateProject(array $args = array()) Update project
+ * @method array updateTag(array $args = array())
  * @method array updateTask(array $args = array())
+ *
  */
 class AsanaClient extends Client
 {

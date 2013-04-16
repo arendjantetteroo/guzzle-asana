@@ -86,6 +86,18 @@
                 }
             }
         },
+        "GetTagsForTask": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/tags",
+            "summary": "Gets a list of Tags for a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                }
+            }
+        },
          "AddProjectToTask": {
             "httpMethod": "POST",
             "uri": "tasks/{task-id}/addProject",
@@ -120,7 +132,7 @@
                 }
             }
         },
-        "GetTasksForWorkspace": {
+        "GetTasksInWorkspace": {
             "extends": "abstract",
             "uri": "tasks?workspace={workspace-id}&assignee=me",
             "summary": "Gets a list of Tasks for Workspace assigned to me",
@@ -547,6 +559,97 @@
                     "items": {
                         "type": "integer"
                     }
+                }
+            }
+        },
+        "CreateTag": {
+            "httpMethod": "POST",
+            "uri": "projects",
+            "summary": "Create a new project",
+            "parameters": {
+                "name": {
+                    "location": "postField",
+                    "type": "string"
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "workspace": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": true
+                }
+            }
+        },
+        "GetTag": {
+            "extends": "abstract",
+            "uri": "tags/{tag-id}",
+            "summary": "Get a single tag",
+            "parameters": {
+                "tag-id": {
+                    "location": "uri",
+                    "type": "integer",
+                    "description": "Tag ID"
+                }
+            }
+        },
+         "UpdateTag": {
+            "httpMethod": "PUT",
+            "uri": "tags/{tag-id}",
+            "summary": "Updating an existing project",
+            "responseNotes": "This method modifies the fields of a tag provided in the request, then returns the full updated record.",
+            "parameters": {
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
+                },
+                "tag-id": {
+                    "location": "uri",
+                    "description": "Tag ID",
+                    "required": true
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+         "GetTasksForTag": {
+            "extends": "abstract",
+            "uri": "tags/{tag-id}/tasks",
+            "summary": "Gets a list of Tasks for a tag",
+            "parameters": {
+                "tag-id": {
+                    "location": "uri",
+                    "description": "Tag ID",
+                    "required": true
+                }
+            }
+        },
+        "GetTags": {
+            "extends": "abstract",
+            "uri": "tags",
+            "summary": "Get all tags"
+        },
+        "GetTagsInWorkspace": {
+            "extends": "abstract",
+            "uri": "workspaces/{workspace-id}/tags",
+            "summary": "Get all tags in this workspace",
+            "parameters": {
+                "workspace-id": {
+                    "location": "uri",
+                    "description": "Workspace id",
+                    "type" : "integer",
+                    "required": true
                 }
             }
         }
