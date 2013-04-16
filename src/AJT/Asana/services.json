@@ -74,6 +74,52 @@
                 }
             }
         },
+        "GetProjectsForTask": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/projects",
+            "summary": "Gets a list of Projects for a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                }
+            }
+        },
+         "AddProjectToTask": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/addProject",
+            "summary": "Add a project to a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "project": {
+                    "location": "postField",
+                    "description": "Project ID",
+                    "required": true
+                }
+            }
+        },
+         "RemoveProjectFromTask": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/removeProject",
+            "summary": "Remove a project from a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "project": {
+                    "location": "postField",
+                    "description": "Project ID",
+                    "required": true
+                }
+            }
+        },
         "GetTasksForWorkspace": {
             "extends": "abstract",
             "uri": "tasks?workspace={workspace-id}&assignee=me",

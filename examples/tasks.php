@@ -74,13 +74,13 @@ $subtask = $asana_client->createSubTask(
 	)
 );
 print_r($subtask);
-// 
 
 // Get subtasks for this task
 print "Get subtasks: getSubTasks\n";
 $subtasks = $asana_client->getSubTasks(array('task-id' => $taskid));
 print_r($subtasks);
 
+// Task stories
 print "Get task stories: getTaskStories\n";
 $stories = $asana_client->getTaskStories(array('task-id' => $taskid));
 print_r($stories);
@@ -96,6 +96,13 @@ print "Comment on task: addTaskComment\n";
 $comment = $asana_client->addTaskComment(array('task-id' => $taskid, 'text' => "Hello, this is a comment"));
 print_r($comment);
 
+print "Get projects for this task: getProjectsForTask\n";
+$projects = $asana_client->getProjectsForTask(array('task-id' => $taskid));
+print_r($projects);
+
+
+
+// Task deletion
 print "Delete this subtask with a normal deleteTask\n";
 $data = $asana_client->deleteTask(array('task-id' => $subtask['id']));
 if(count($data) == 0){

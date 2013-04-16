@@ -15,6 +15,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @package AJT\Asana
  *
  * @method array addProjectComment(array $args = array())
+ * @method array addProjectToTask(array $args = array())
  * @method array addTaskComment(array $args = array())
  * @method array createProject(array $args = array())
  * @method array createTask(array $args = array())
@@ -29,6 +30,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getSubTasks(array $args = array()) Showing subtasks of a specific task
  * @method array getTasksForWorkspace(array $args = array())
  * @method array getTask(array $args = array())
+ * @method array getProjectsForTask(array $args = array())
  * @method array getTaskStories(array $args = array()) get all stories of a specific task
  * @method array getUsers(array $args = array())
  * @method array getUsersWithEmail(array $args = array())
@@ -36,6 +38,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array getUserMe(array $args = array())
  * @method array getUsersInWorkspace(array $args = array())
  * @method array getWorkspaces(array $args = array())
+ * @method array removeProjectFromTask(array $args = array())
  * @method array renameWorkspace(array $args = array())
  * @method array updateProject(array $args = array()) Update project
  * @method array updateTask(array $args = array())
