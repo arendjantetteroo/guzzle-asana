@@ -410,6 +410,12 @@
                     "location": "postField",
                     "type": "string",
                     "required": false
+                },
+                "archived": {
+                    "location": "postField",
+                    "description": "archive this project",
+                    "type" : "boolean",
+                    "required": false
                 }
             }
         },
@@ -423,6 +429,38 @@
                     "location": "uri",
                     "description": "Project ID",
                     "required": true
+                }
+            }
+        },
+        "GetProjects": {
+            "extends": "abstract",
+            "uri": "projects",
+            "summary": "Get all archived projects",
+            "parameters": {
+                "archived": {
+                    "location": "query",
+                    "description": "Archived projects",
+                    "type" : "boolean",
+                    "required": false
+                }
+            }
+        },
+        "GetProjectsInWorkspace": {
+            "extends": "abstract",
+            "uri": "workspaces/{workspace-id}/projects",
+            "summary": "Get all projects in this workspace",
+            "parameters": {
+                "workspace-id": {
+                    "location": "uri",
+                    "description": "Workspace id",
+                    "type" : "integer",
+                    "required": true
+                },
+                "archived": {
+                    "location": "query",
+                    "description": "Archived projects",
+                    "type" : "boolean",
+                    "required": false
                 }
             }
         }

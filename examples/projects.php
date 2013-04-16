@@ -47,10 +47,44 @@ $project = $asana_client->updateProject(
 	array(
 		'name'  	 => 'Updated Test Project',
 		'notes' 	 => "updated testing notes",
+		'archived'   => true, // If you don't want to archive, don't include this field
 		'project-id' => $projectid
 	)
 );
 print_r($project);
+
+print "Get all projects in this workspace: getProjectsInWorkspace\n";
+$projects = $asana_client->getProjectsInWorkspace(
+	array(
+		'workspace-id' => $workspace_id
+	)
+);
+print_r($projects);
+
+print "Get all archived projects in Workspace: getProjectsInWorkspace\n";
+$projects = $asana_client->getProjectsInWorkspace(
+	array(
+		'workspace-id' => $workspace_id,
+		'archived' => true
+	)
+);
+print_r($projects);
+
+print "Get all active projects (over all workspaces): getArchivedProjects\n";
+$projects = $asana_client->getProjects(
+	array(
+	)
+);
+print_r($projects);
+
+
+print "Get all archived projects (over all workspaces): getArchivedProjects\n";
+$projects = $asana_client->getProjects(
+	array(
+		'archived' => true
+	)
+);
+print_r($projects);
 
 
 print "DeleteProject\n";
