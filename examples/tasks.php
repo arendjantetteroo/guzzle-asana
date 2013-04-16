@@ -59,7 +59,7 @@ $updatedtask = $asana_client->updateTask(
 print_r($updatedtask);
 
 // Create a subtask
-print "Create a subtask for this task $taskid\n";
+print "Create a subtask for this task $taskid: createSubTask\n";
 $subtask = $asana_client->createSubTask(
 	array(
 		'assignee'  	  => 'me',
@@ -77,9 +77,24 @@ print_r($subtask);
 // 
 
 // Get subtasks for this task
-print "Get subtasks\n";
-$subtask = $asana_client->getSubTasks(array('task-id' => $taskid));
-print_r($subtask);
+print "Get subtasks: getSubTasks\n";
+$subtasks = $asana_client->getSubTasks(array('task-id' => $taskid));
+print_r($subtasks);
+
+print "Get task stories: getTaskStories\n";
+$stories = $asana_client->getTaskStories(array('task-id' => $taskid));
+print_r($stories);
+
+print "Get single story: getStory\n";
+if(count($stories) > 0){
+	$storyid = $stories[0]['id'];
+	$story = $asana_client->getStory(array('story-id' => $storyid));
+	print_r($story);
+}
+
+print "Comment on task: addTaskComment\n";
+$comment = $asana_client->addTaskComment(array('task-id' => $taskid, 'text' => "Hello, this is a comment"));
+print_r($comment);
 
 print "Delete this subtask with a normal deleteTask\n";
 $data = $asana_client->deleteTask(array('task-id' => $subtask['id']));
@@ -88,7 +103,7 @@ if(count($data) == 0){
 }
 
 // Remove the created task
-print "deleteTask\n";
+print "Delete the main task with: deleteTask\n";
 $data = $asana_client->deleteTask(array('task-id' => $taskid));
 if(count($data) == 0){
 	print "Task deleted\n";

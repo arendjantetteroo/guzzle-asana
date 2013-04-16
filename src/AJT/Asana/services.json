@@ -17,7 +17,7 @@
             "extends": "abstract",
             "uri": "workspaces",
             "summary": "Showing available workspaces"
-        }, 
+        },
         "RenameWorkspace": {
             "httpMethod": "PUT",
             "uri": "workspaces/{workspace-id}",
@@ -32,7 +32,7 @@
             "extends": "abstract",
             "uri": "users?opt_fields=name,email",
             "summary": "Showing all users in all workspaces with email addresses"
-        }, 
+        },
         "GetUser": {
             "extends": "abstract",
             "uri": "users/{user-id}",
@@ -85,7 +85,7 @@
                     "required": true
                 }
             }
-        }, 
+        },
         "GetTask": {
             "extends": "abstract",
             "uri": "tasks/{task-id}",
@@ -282,6 +282,76 @@
                     "type": "integer"
                 }
             }
+        },
+         "GetTaskStories": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/stories",
+            "summary": "Showing all stories of a specific task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                }
+            }
+        },
+        "GetProjectStories": {
+            "extends": "abstract",
+            "uri": "projects/{project-id}/stories",
+            "summary": "Showing all stories of a specific project",
+            "parameters": {
+                "project-id": {
+                    "location": "uri",
+                    "description": "Project ID",
+                    "required": true
+                }
+            }
+        },
+        "GetStory": {
+            "extends": "abstract",
+            "uri": "stories/{story-id}",
+            "summary": "Showing a single story",
+            "parameters": {
+                "story-id": {
+                    "location": "uri",
+                    "description": "Story ID",
+                    "required": true
+                }
+            }
+        },
+        "AddTaskComment": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/stories",
+            "summary": "Comment on a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true
+                },
+                "text":{
+                    "required": true,
+                    "location": "postField",
+                    "type": "string"
+                }
+            }
+        },
+        "AddProjectComment": {
+            "httpMethod": "POST",
+            "uri": "projects/{project-id}/stories",
+            "summary": "Comment on a task",
+            "parameters": {
+                "project-id": {
+                    "location": "uri",
+                    "description": "Project ID",
+                    "required": true
+                },
+                "text":{
+                    "required": true,
+                    "location": "postField",
+                    "type": "string"
+                }
+            }
         }
-  	}
+    }
 }
