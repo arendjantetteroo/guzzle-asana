@@ -70,7 +70,7 @@ $projects = $asana_client->getProjectsInWorkspace(
 );
 print_r($projects);
 
-print "Get all active projects (over all workspaces): getArchivedProjects\n";
+print "Get all active projects (over all workspaces): getProjects\n";
 $projects = $asana_client->getProjects(
 	array(
 	)
@@ -78,7 +78,7 @@ $projects = $asana_client->getProjects(
 print_r($projects);
 
 
-print "Get all archived projects (over all workspaces): getArchivedProjects\n";
+print "Get all archived projects (over all workspaces): getProjects\n";
 $projects = $asana_client->getProjects(
 	array(
 		'archived' => true

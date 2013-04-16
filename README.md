@@ -16,7 +16,15 @@ And run `composer install`
 
 ## Features
 
-* Version 1.0 API with API Key authentication
+* Complete version 1.0 API with API Key authentication
+
+## Todo
+
+- [x] Complete the service description
+- [x] Add some more examples
+- [ ] Add tests
+- [ ] Add some Response models
+- [ ] Add an oauth2 example for asana connect
 
 ## Usage
     
@@ -32,8 +40,8 @@ use AJT\Asana\AsanaClient;
 $asana_token = ''; // Fill in your token here
 $asana_client = AsanaClient::factory(array('api_key' => $asana_token));
 
-// if you want to see what is happening, add debug=true to the factory call
-$asana_client = AsanaClient::factory(array('api_key' => $asana_token, 'debug'=> true)); 
+// if you want to see what is happening, add debug => true to the factory call
+$asana_client = AsanaClient::factory(array('api_key' => $asana_token, 'debug' => true)); 
 ```
 
 Invoke Commands using our `__call` method (auto-complete phpDocs are included)
@@ -51,7 +59,7 @@ foreach($workspaces as $workspace){
 }
 ``` 
 
-Or Use the `getCommand` method:
+Or Use the `getCommand` method (in this case you need to work with the $response['data'] array:
 
 ```php
 <?php 
@@ -79,22 +87,18 @@ Afterwards you can execute the examples in the examples directory.
 Available examples with their included commands:
 - get-users.php : getUsers, getUsersWithEmail, getUser, getMe, getUsersInWorkspace
 - get-workspaces.php: getWorkspaces, getTasksForWorkspace
-- tasks.php: createTask, getTask, updateTask, deleteTask
+- tasks.php: createTask, getTask, updateTask, deleteTask, createSubTask, getSubTasks, getTaskStories, getStory, addTaskComment, getProjectsForTask
+- tasks-and-projects.php: createTask, getProjectsInWorkspace, addProjectToTask, getProjectsForTask, removeProjectFromTask
+- tasks-followers.php: createTask, getTask, addTaskFollowers, removeTaskFollowers
+- tags.php: createTag, getTag, updateTag, getTagsInWorkspace, getTags
+- projects.php: createProject, getProject, updateProject, getProjectsInWorkspace, getProjects, deleteProjects
 
-See the examples directory for a workspace with tasks usage example
-
-You can look at the services.json for details on what methods are available and how to call them
-
-## Todo
-
-
-- [ ] Complete the service description
-- [ ] Add tests
-- [ ] Add some more examples
-- [ ] Add some Response models
-- [ ] Add an oauth2 example for asana connect
+You can look at the services.json for details on what methods are available and what parameters are available to call them
 
 ## Contributions welcome
+
+Found a bug, open an issue, preferably with the debug output and what you did. 
+Bugfix? Open a Pull Request and i'll look into it. 
 
 ## License
 
