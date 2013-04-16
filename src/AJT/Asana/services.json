@@ -352,6 +352,79 @@
                     "type": "string"
                 }
             }
+        },
+        "CreateProject": {
+            "httpMethod": "POST",
+            "uri": "projects",
+            "summary": "Create a new project",
+            "parameters": {
+                "name": {
+                    "location": "postField",
+                    "type": "string"
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "workspace": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": true
+                }
+            }
+        },
+        "GetProject": {
+            "extends": "abstract",
+            "uri": "projects/{project-id}",
+            "summary": "Get a single project",
+            "parameters": {
+                "project-id": {
+                    "location": "uri",
+                    "type": "integer"
+                }
+            }
+        },
+         "UpdateProject": {
+            "httpMethod": "PUT",
+            "uri": "projects/{project-id}",
+            "summary": "Updating an existing project",
+            "responseNotes": "This method modifies the fields of a project provided in the request, then returns the full updated record.",
+            "parameters": {
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
+                },
+                "project-id": {
+                    "location": "uri",
+                    "description": "Project ID",
+                    "required": true
+                },
+                "name": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                },
+                "notes": {
+                    "location": "postField",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+         "DeleteProject": {
+            "extends": "abstract",
+            "httpMethod": "DELETE",
+            "uri": "projects/{project-id}",
+            "summary": "Deleting a specific project",
+            "parameters": {
+                "project-id": {
+                    "location": "uri",
+                    "description": "Project ID",
+                    "required": true
+                }
+            }
         }
     }
 }
