@@ -106,6 +106,11 @@
                     "description": "Project ID",
                     "required": true,
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -125,6 +130,11 @@
                     "description": "Project ID",
                     "required": true,
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -157,6 +167,11 @@
                     "description": "Tag ID",
                     "required": true,
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -176,6 +191,11 @@
                     "description": "Tag ID",
                     "required": true,
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -250,6 +270,11 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -259,11 +284,6 @@
             "summary": "Updating an existing task",
             "responseNotes": "A specific, existing task can be updated by making a PUT request on the URL for that task. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged. When using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the task. This method returns the complete updated task record, described above.",
             "parameters": {
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
-                },
                 "task-id": {
                     "location": "uri",
                     "description": "Task ID",
@@ -309,6 +329,11 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -390,6 +415,11 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -447,6 +477,11 @@
                     "required": true,
                     "location": "postField",
                     "type": "string"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -465,6 +500,11 @@
                     "required": true,
                     "location": "postField",
                     "type": "string"
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -492,6 +532,11 @@
                     "type": "integer",
                     "required": false,
                     "description": "If the workspace for your project is an organization, you must also supply a team to share the project with."
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -512,11 +557,6 @@
             "summary": "Updating an existing project",
             "responseNotes": "This method modifies the fields of a project provided in the request, then returns the full updated record.",
             "parameters": {
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
-                },
                 "project-id": {
                     "location": "uri",
                     "description": "Project ID",
@@ -538,6 +578,11 @@
                     "description": "archive this project",
                     "type" : "boolean",
                     "required": false
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -605,6 +650,11 @@
                     "items": {
                         "type": "integer"
                     }
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -626,6 +676,11 @@
                     "items": {
                         "type": "integer"
                     }
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -647,6 +702,11 @@
                     "location": "postField",
                     "type": "integer",
                     "required": true
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
@@ -687,6 +747,11 @@
                     "location": "postField",
                     "type": "string",
                     "required": false
+                },
+                "Content-Type": {
+                    "location": "header",
+                    "default": "application/x-www-form-urlencoded",
+                    "static": true
                 }
             }
         },
