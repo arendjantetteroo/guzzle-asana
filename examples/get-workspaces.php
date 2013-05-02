@@ -17,7 +17,7 @@ foreach($workspaces as $workspace){
 	print $id . " - " . $workspace['name'] . "\n";
 
 	// Get all tasks for this workspace
-	$tasks = $asana_client->getTasksForWorkspace(array('workspace-id' => $id));
+	$tasks = $asana_client->getTasksInWorkspace(array('workspace-id' => $id));
 	print "This workspace has " . count($tasks) . " tasks\n";
 	foreach ($tasks as $task){
 		print $task['id'] . ' - ' . $task['name'] . "\n";
