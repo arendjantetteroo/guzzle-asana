@@ -714,6 +714,19 @@
                     "required": true
                 }
             }
+        },
+        "GetTeams": {
+            "extends": "abstract",
+            "uri": "organizations/{organization-id}/teams",
+            "summary": "Get all teams in this organization",
+            "parameters": {
+                "organization-id": {
+                    "location": "uri",
+                    "description": "Organization id",
+                    "type" : "integer",
+                    "required": true
+                }
+            }
         }
     }
 }

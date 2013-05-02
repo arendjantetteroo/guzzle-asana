@@ -16,6 +16,13 @@ foreach($workspaces as $workspace){
 	$id = $workspace['id'];
 	print $id . " - " . $workspace['name'] . "\n";
 
+	if(isset($workspace['is_organization']) && $workspace['is_organization']){
+		print "This workspace is an organization, getting teams\n";
+		$asana_client->getTeams(array('organization-id' => $id));
+	}else{
+		print "This is not an organization, no teams\n";
+	}
+
 	// Get all tasks for this workspace
 	$tasks = $asana_client->getTasksInWorkspace(array('workspace-id' => $id));
 	print "This workspace has " . count($tasks) . " tasks\n";
