@@ -33,6 +33,25 @@ $project = $asana_client->createProject(
 print_r($project);
 $projectid = $project['id'];
 
+/* 
+ * If you create a project in a workspace that is an organization, you need to supply a team-id as follows
+ */ 
+/*
+print "createProject for Organization\n";
+
+$team_id = 12345;
+$project = $asana_client->createProject(
+	array(
+		'name'  	  => 'Test Project',
+		'notes' 	  => "testing notes",
+		'workspace'   => $workspace_id,
+		'team'        => $team_id
+	)
+);
+print_r($project);
+$projectid = $project['id'];
+*/
+
 // Get a project
 print "getProject\n";
 $project = $asana_client->getProject(

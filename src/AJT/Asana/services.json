@@ -486,6 +486,12 @@
                     "location": "postField",
                     "type": "integer",
                     "required": true
+                },
+                "team": {
+                    "location": "postField",
+                    "type": "integer",
+                    "required": false,
+                    "description": "If the workspace for your project is an organization, you must also supply a team to share the project with."
                 }
             }
         },
