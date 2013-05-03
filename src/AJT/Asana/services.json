@@ -106,11 +106,6 @@
                     "description": "Project ID",
                     "required": true,
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -130,11 +125,6 @@
                     "description": "Project ID",
                     "required": true,
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -167,11 +157,6 @@
                     "description": "Tag ID",
                     "required": true,
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -191,11 +176,6 @@
                     "description": "Tag ID",
                     "required": true,
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -270,11 +250,6 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -329,11 +304,6 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -415,11 +385,6 @@
                     "required": false,
                     "location": "postField",
                     "type": "integer"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -477,11 +442,6 @@
                     "required": true,
                     "location": "postField",
                     "type": "string"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -500,11 +460,6 @@
                     "required": true,
                     "location": "postField",
                     "type": "string"
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -532,11 +487,6 @@
                     "type": "integer",
                     "required": false,
                     "description": "If the workspace for your project is an organization, you must also supply a team to share the project with."
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -578,11 +528,6 @@
                     "description": "archive this project",
                     "type" : "boolean",
                     "required": false
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -650,11 +595,6 @@
                     "items": {
                         "type": "integer"
                     }
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -676,11 +616,6 @@
                     "items": {
                         "type": "integer"
                     }
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -702,11 +637,6 @@
                     "location": "postField",
                     "type": "integer",
                     "required": true
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
@@ -728,11 +658,6 @@
             "summary": "Updating an existing project",
             "responseNotes": "This method modifies the fields of a tag provided in the request, then returns the full updated record.",
             "parameters": {
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
-                },
                 "tag-id": {
                     "location": "uri",
                     "description": "Tag ID",
@@ -747,11 +672,6 @@
                     "location": "postField",
                     "type": "string",
                     "required": false
-                },
-                "Content-Type": {
-                    "location": "header",
-                    "default": "application/x-www-form-urlencoded",
-                    "static": true
                 }
             }
         },
