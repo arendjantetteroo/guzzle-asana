@@ -388,6 +388,25 @@
                 }
             }
         },
+        "SetSubTaskParent": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/setParent",
+            "summary": "Set a parent for a task (make the task a subtask of the given parent)",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID of task to add a parent to",
+                    "required": true,
+                    "type": "integer"
+                },
+                "parent": {
+                    "location": "postField",
+                    "description": "Task ID of parent to add this task to, use 'null' with quotes to remove parent.",
+                    "required": true,
+                    "type": ["integer", "string"]
+                }
+            }
+         },
          "GetTaskStories": {
             "extends": "abstract",
             "uri": "tasks/{task-id}/stories",

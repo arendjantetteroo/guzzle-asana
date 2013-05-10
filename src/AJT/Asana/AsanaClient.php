@@ -47,6 +47,7 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
  * @method array removeProjectFromTask(array $args = array())
  * @method array removeTaskFollowers(array $args = array())
  * @method array renameWorkspace(array $args = array())
+ * @method array setSubTaskParent(array $args = array())
  * @method array updateProject(array $args = array()) Update project
  * @method array updateTag(array $args = array())
  * @method array updateTask(array $args = array())

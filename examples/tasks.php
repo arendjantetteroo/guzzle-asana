@@ -95,6 +95,30 @@ $subtask = $asana_client->createSubTask(
 );
 print_r($subtask);
 
+// Create another task
+print "createTask\n";
+$task = $asana_client->createTask(
+	array(
+		'assignee'  	  => 'me',
+		'assignee_status' => 'upcoming', 		// One off inbox, later, today or upcoming
+		'name' 			  => 'Asana api test task as new parent',
+		'completed' 	  => 0, 						// 0 for false, 1 for true
+		'notes' 		  => "this task will be the new parent of the subtask",
+		'workspace' 	  => $workspace_id,
+		'due_on' 		  => $duedate->format('Y-m-d'),   
+		'followers' 	  => array(),
+	)
+);
+print_r($task);
+$newtaskid = $task['id'];
+
+// Set a new parent
+print "Set a new parent ($newtaskid) for the created subtask $taskid: setSubTaskParent\n";
+$asana_client->setSubTaskParent(array('parent' => $newtaskid, 'task-id' => $subtask['id']));
+
+print "Remove parent by using 'null' with quotes for the created subtask $taskid: setSubTaskParent\n";
+$asana_client->setSubTaskParent(array('parent' => 'null', 'task-id' => $subtask['id']));
+
 // Get subtasks for this task
 print "Get subtasks: getSubTasks\n";
 $subtasks = $asana_client->getSubTasks(array('task-id' => $taskid));
@@ -128,6 +152,12 @@ if ($cleanup) {
 		print "Subtask deleted\n";
 	}
 
+	// Task deletion
+	print "Delete the new parent with a normal deleteTask\n";
+	$data = $asana_client->deleteTask(array('task-id' => $newtaskid));
+	if(count($data) == 0){
+		print "New parent task deleted\n";
+	}
 
 	// Remove the created task
 	print "Delete the main task with: deleteTask\n";
