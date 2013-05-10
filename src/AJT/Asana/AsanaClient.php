@@ -7,6 +7,7 @@ use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Guzzle\Plugin\Log\LogPlugin;
 use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
+use Guzzle\Plugin\Backoff\BackoffPlugin;
 
 /**
  * An Asana Client based on guzzle
@@ -73,7 +74,8 @@ class AsanaClient extends Client
     {
         $default = array(
             'base_url' => 'https://app.asana.com/api/1.0',
-            'debug' => false
+            'debug' => false,
+            'backoff' => true
         );
         $required = array('api_key', 'base_url');
         $config = Collection::fromConfig($config, $default, $required);
@@ -89,6 +91,11 @@ class AsanaClient extends Client
 		if($config->get('debug')){
 			$client->addSubscriber(LogPlugin::getDebugPlugin());	
 		}		
+        if ($config->get('backoff')) {
+            // Get a backoff plugin that takes the retry-after rate limit into account
+            $backoffPlugin = new BackoffPlugin(new HttpBackoffWithRetryAfterStrategy());
+            $client->addSubscriber($backoffPlugin);
+        }
         return $client;
     }
 
