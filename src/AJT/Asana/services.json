@@ -10,6 +10,16 @@
                 "Content-Type": {
                     "location": "header",
                     "default": "application/json"
+                },
+                "opt_fields": {
+                    "location": "query",
+                    "required": false,
+                    "type": "string"
+                },
+                "opt_expand": {
+                    "location": "query",
+                    "required": false,
+                    "type": "string"
                 }
             }
         },
