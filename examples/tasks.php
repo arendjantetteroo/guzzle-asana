@@ -5,14 +5,9 @@
  * Create, get update and delete a task
  */
 
-require dirname(__FILE__). '/../apikey.php';
-
-require dirname(__FILE__).'/../vendor/autoload.php';
-
-use AJT\Asana\AsanaClient;
-
-// Get the asana client with your asana api key
-$asana_client = AsanaClient::factory(array('api_key' => $asana_api_key));
+/**
+ * ------ Config -------
+ */
 
 /*
  * Change this to the id of the workspace you want to add the task to
@@ -20,6 +15,31 @@ $asana_client = AsanaClient::factory(array('api_key' => $asana_api_key));
  * You can use the get-workspaces.php file to get the workspace id's
  */
 $workspace_id = 4785243965702; 
+
+/**
+ * If set to true, tasks will be deleted at the end
+ */
+$cleanup = false;
+
+/**
+ * If set to true, all api calls will be shown with debug output
+ * @var boolean
+ */
+$debug = false;
+
+/**
+ * ------- End Config -------
+ */
+
+
+require dirname(__FILE__). '/../apikey.php';
+
+require dirname(__FILE__).'/../vendor/autoload.php';
+
+use AJT\Asana\AsanaClient;
+
+// Get the asana client with your asana api key
+$asana_client = AsanaClient::factory(array('api_key' => $asana_api_key, 'debug' => $debug));
 
 //Duedate in two days
 $duedate = new DateTime();
@@ -100,18 +120,19 @@ print "Get projects for this task: getProjectsForTask\n";
 $projects = $asana_client->getProjectsForTask(array('task-id' => $taskid));
 print_r($projects);
 
+if ($cleanup) {
+	// Task deletion
+	print "Delete this subtask with a normal deleteTask\n";
+	$data = $asana_client->deleteTask(array('task-id' => $subtask['id']));
+	if(count($data) == 0){
+		print "Subtask deleted\n";
+	}
 
 
-// Task deletion
-print "Delete this subtask with a normal deleteTask\n";
-$data = $asana_client->deleteTask(array('task-id' => $subtask['id']));
-if(count($data) == 0){
-	print "Subtask deleted\n";
-}
-
-// Remove the created task
-print "Delete the main task with: deleteTask\n";
-$data = $asana_client->deleteTask(array('task-id' => $taskid));
-if(count($data) == 0){
-	print "Task deleted\n";
+	// Remove the created task
+	print "Delete the main task with: deleteTask\n";
+	$data = $asana_client->deleteTask(array('task-id' => $taskid));
+	if(count($data) == 0){
+		print "Task deleted\n";
+	}
 }
