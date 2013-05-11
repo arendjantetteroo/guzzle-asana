@@ -14,5 +14,6 @@ app/config/parameters.yml
 
 # Apikey
 apikey.php
+oauthparams.php
 nbproject
 .project

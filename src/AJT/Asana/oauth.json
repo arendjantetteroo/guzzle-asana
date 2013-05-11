@@ -1,0 +1,84 @@
+{
+    "name": "Asana Oauth",
+    "apiVersion": "2013-05-10",
+    "description": "Asana API Oauth",
+    "includes": ["services.json"],
+    "operations": {
+        "GetToken": {
+            "httpMethod": "POST",
+            "uri": "https://app.asana.com/-/oauth_token",
+            "summary": "Get an oauth token",
+            "parameters": {
+                "grant_type": {
+                    "location": "postField",
+                    "description": "Grant Type",
+                    "default": "authorization_code",
+                    "static": true,
+                    "type": "string"
+                },
+                "client_id": {
+                    "location": "postField",
+                    "description": "Client ID",
+                    "required": true,
+                    "type": "string"
+                },
+                "client_secret": {
+                    "location": "postField",
+                    "description": "Client Secret",
+                    "required": true,
+                    "type": "string"
+                },
+                "redirect_uri": {
+                    "location": "postField",
+                    "description": "Redirect URI",
+                    "required": true,
+                    "type": "string"
+                },
+                "code": {
+                    "location": "postField",
+                    "description": "Code",
+                    "required": true,
+                    "type": "string"
+                }
+            }
+        },
+        "RefreshToken": {
+            "httpMethod": "POST",
+            "uri": "https://app.asana.com/-/oauth_token",
+            "summary": "Refresh an oauth token",
+            "parameters": {
+                "grant_type": {
+                    "location": "postField",
+                    "description": "Grant Type",
+                    "default": "refresh_token",
+                    "static": true,
+                    "type": "string"
+                },
+                "client_id": {
+                    "location": "postField",
+                    "description": "Client ID",
+                    "required": true,
+                    "type": "string"
+                },
+                "client_secret": {
+                    "location": "postField",
+                    "description": "Client Secret",
+                    "required": true,
+                    "type": "string"
+                },
+                "redirect_uri": {
+                    "location": "postField",
+                    "description": "Redirect URI",
+                    "required": true,
+                    "type": "string"
+                },
+                "refresh_token": {
+                    "location": "postField",
+                    "description": "Refresh this token",
+                    "required": true,
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
