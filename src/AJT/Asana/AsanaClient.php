@@ -10,52 +10,37 @@ use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
 use Guzzle\Plugin\Backoff\BackoffPlugin;
 
 /**
- * An Asana Client based on guzzle
+ * An Asana Client based on guzzle for Asana Api Key Authentication
  *
  * @link http://developer.asana.com/documentation
  * @package AJT\Asana
- *
- * @method array addProjectComment(array $args = array())
- * @method array addProjectToTask(array $args = array())
- * @method array addTaskComment(array $args = array())
- * @method array addTaskFollowers(array $args = array())
- * @method array createProject(array $args = array())
- * @method array createTag(array $args = array())
- * @method array createTask(array $args = array())
- * @method array createSubTask(array $args = array()) Creating a new subtask
- * @method array deleteProject(array $args = array())
- * @method array deleteTask(array $args = array())
- * @method array getProject(array $args = array()) get a specific project
- * @method array getProjects(array $args = array()) get all projects (either archived or active)
- * @method array getProjectsInWorkspace(array $args = array()) get all projects in this workspace
- * @method array getProjectStories(array $args = array()) get all stories of a specific project
- * @method array getStory(array $args = array()) Showing a single story
- * @method array getSubTasks(array $args = array()) Showing subtasks of a specific task
- * @method array getTag(array $args = array())
- * @method array getTags(array $args = array())
- * @method array getTagsInWorkspace(array $args = array())
- * @method array getTasksInWorkspace(array $args = array())
- * @method array getTasksForTag(array $args = array())
- * @method array getTask(array $args = array())
- * @method array getProjectsForTask(array $args = array())
- * @method array getTaskStories(array $args = array()) get all stories of a specific task
- * @method array getUsers(array $args = array())
- * @method array getUsersWithEmail(array $args = array())
- * @method array getUser(array $args = array())
- * @method array getUserMe(array $args = array())
- * @method array getUsersInWorkspace(array $args = array())
- * @method array getWorkspaces(array $args = array())
- * @method array removeProjectFromTask(array $args = array())
- * @method array removeTaskFollowers(array $args = array())
- * @method array renameWorkspace(array $args = array())
- * @method array setSubTaskParent(array $args = array())
- * @method array updateProject(array $args = array()) Update project
- * @method array updateTag(array $args = array())
- * @method array updateTask(array $args = array())
- *
  */
-class AsanaClient extends Client
+class AsanaClient extends AbstractAsanaClient
 {
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return array
+     */
+    public static function getDefaultParameters()
+    {
+        return array(
+            'base_url' => 'https://app.asana.com/api/1.0',
+            'debug' => false,
+            'backoff' => true
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return array
+     */
+    public static function getRequiredParameters()
+    {
+        return array('api_key', 'base_url');
+    }
 
     /**
      * Factory method to create a new AsanaClient
@@ -72,35 +57,22 @@ class AsanaClient extends Client
      */
     public static function factory($config = array())
     {
-        $default = array(
-            'base_url' => 'https://app.asana.com/api/1.0',
-            'debug' => false,
-            'backoff' => true
-        );
-        $required = array('api_key', 'base_url');
-        $config = Collection::fromConfig($config, $default, $required);
+        $configuration = static::buildConfig($config);
 
-        $client = new self($config->get('base_url'), $config);
-        // Attach a service description to the client
-        $description = ServiceDescription::factory(__DIR__ . '/services.json');
-        $client->setDescription($description);
+        $client = new self($configuration->get('base_url'), $configuration);
 
-		$authPlugin = new CurlAuthPlugin($config->get('api_key'), '');
-		$client->addSubscriber($authPlugin);
+        $authPlugin = new CurlAuthPlugin($configuration->get('api_key'), '');
+        $client->addSubscriber($authPlugin);
 
-		if($config->get('debug')){
-			$client->addSubscriber(LogPlugin::getDebugPlugin());	
-		}		
-        if ($config->get('backoff')) {
-            // Get a backoff plugin that takes the retry-after rate limit into account
-            $backoffPlugin = new BackoffPlugin(new HttpBackoffWithRetryAfterStrategy());
-            $client->addSubscriber($backoffPlugin);
-        }
+        static::loadDefinitions($client);
+        static::loadStandardSettings($client, $configuration);
+
         return $client;
     }
 
 	/**
      * Shortcut for executing Commands in the Definitions.
+     * Removes the datafield from results
      *
      * @param string $method
      * @param array|null $args
@@ -110,9 +82,7 @@ class AsanaClient extends Client
      */
     public function __call($method, $args = null)
     {
-        $commandName = ucfirst($method);
-
-        $result = parent::__call($commandName, $args);
+        $result = parent::__call($method, $args);
         
         // Remove data field
         if (isset($result['data'])) {

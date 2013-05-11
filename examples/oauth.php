@@ -2,7 +2,7 @@
 /**
  * Oauth example for Asana
  *
- * based on an oauth example by flowbs
+ * Based on an oauth example by www.flowbs.com, adapted to use Guzzle
  * 
  * Copy oauthparams-dist.php to oauthparams.php, create an app within asana 
  * and fill in the details
@@ -41,12 +41,12 @@ $asana_client = AsanaOauthClient::factory(array('debug' => $debug));
 	//2. POST information to the token interface
 	//-------------------------------------------------------------------
 	$postFields = array(
-		'client_id' => $params['client_id'],
+		'client_id' 	=> $params['client_id'],
 		'client_secret' => $params['client_secret'],
-		'code' => $_GET['code'],
-		'redirect_uri' => $params['redirect_uri']
+		'code' 			=> $_GET['code'],
+		'redirect_uri'  => $params['redirect_uri']
 	);
-	$authData = $asana_client->getToken($postFields);
+	$authData   = $asana_client->getToken($postFields);
 	$access_key = $authData['access_token']; 
 		
 	echo 'Your current access_token is: ' .$access_key .'<br><hr/>';
@@ -76,5 +76,3 @@ $asana_client = AsanaOauthClient::factory(array('debug' => $debug));
 	echo "it will expire in: " .$authData['expires_in'] ." seconds<br>";
 	echo "token type: " .$authData['token_type'] ."<br>"; 
 }
-?>
-
