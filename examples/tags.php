@@ -28,14 +28,16 @@ $tag = $asana_client->createTag(
 		'name'  	  => 'Test Tag',
 		'notes' 		  => "testing notes for tag",
 		'workspace' 	  => $workspace_id,
+		'color'           => 'dark-red'
 	)
 );
 print_r($tag);
 $tagid = $tag['id'];
 
+/*
 // Get a tag
 // @todo: figure out why this fails
-/*print "getTag\n";
+print "getTag\n";
 $tag = $asana_client->getTag(
 	array(
 		'tag-id'  	  => $tagid,
