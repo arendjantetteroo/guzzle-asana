@@ -14,6 +14,12 @@ Simply add this to your `composer.json` file:
     
 And run `composer install`
 
+Use 0.9.3 for the current stable version:
+
+    "require": {
+        "ajt/guzzle-asana": "0.9.3"
+    }
+    
 ## Features
 
 * Complete version 1.0 API 
@@ -101,20 +107,24 @@ Copy the apikey-dist.php to apikey.php (in the root directory) and add your apik
 Afterwards you can execute the examples in the examples directory. 
 
 Available examples with their included commands:
+- attachments.php: createTask, uploadAttachment, getAttachmentsForTask, getAttachment
 - get-users.php : getUsers, getUsersWithEmail, getUser, getMe, getUsersInWorkspace
 - get-workspaces.php: getWorkspaces, getTasksForWorkspace
+- projects.php: createProject, getProject, updateProject, getProjectsInWorkspace, getProjects, deleteProjects
 - tasks.php: createTask, getTask, updateTask, deleteTask, createSubTask, getSubTasks, getTaskStories, getStory, addTaskComment, getProjectsForTask
 - tasks-and-projects.php: createTask, getProjectsInWorkspace, addProjectToTask, getProjectsForTask, removeProjectFromTask
 - tasks-followers.php: createTask, getTask, addTaskFollowers, removeTaskFollowers
 - tags.php: createTag, getTag, updateTag, getTagsInWorkspace, getTags
-- projects.php: createProject, getProject, updateProject, getProjectsInWorkspace, getProjects, deleteProjects
 
 You can look at the services.json for details on what methods are available and what parameters are available to call them
+
+- ratelimit.php shows how the backoffretry plugin works
 
 - oauth.php is an Asana Connect example and needs to be run with a webserver. 
 If you are on php 5.4, you can just use the internal webserver to try it out.
 First you need to configure the oauthparams.php file. 
 Copy the oauthparams-dist.php file to oauthparams.php, fill in the details (get them in Asana on the Apps page by registering a new app) and then run the server.
+
 ```php
 // Run this in the examples directory and you're good to go.
 php -S localhost:8888
