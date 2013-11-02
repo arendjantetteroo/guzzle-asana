@@ -678,8 +678,8 @@
         },
         "GetTag": {
             "extends": "abstract",
-            "uri": "tags/{tag-id}",
-            "summary": "Get a single tag",
+            "uri": "projects/{tag-id}",
+            "summary": "Get a single tag (project)",
             "parameters": {
                 "tag-id": {
                     "location": "uri",
@@ -690,8 +690,8 @@
         },
          "UpdateTag": {
             "httpMethod": "PUT",
-            "uri": "tags/{tag-id}",
-            "summary": "Updating an existing project",
+            "uri": "projects/{tag-id}",
+            "summary": "Updating an existing tag",
             "responseNotes": "This method modifies the fields of a tag provided in the request, then returns the full updated record.",
             "parameters": {
                 "tag-id": {

@@ -34,9 +34,7 @@ $tag = $asana_client->createTag(
 print_r($tag);
 $tagid = $tag['id'];
 
-/*
 // Get a tag
-// @todo: figure out why this fails
 print "getTag\n";
 $tag = $asana_client->getTag(
 	array(
@@ -54,7 +52,7 @@ $tag = $asana_client->updateTag(
 	)
 );
 print_r($tag);
-*/
+
 
 print "Get all tags in this workspace: getTagsInWorkspace\n";
 $tags = $asana_client->getTagsInWorkspace(
