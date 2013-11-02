@@ -29,6 +29,7 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
  * @method array getAttachmentsForTask(array $args = array()) get all attachments for a specific task
  * @method array getProject(array $args = array()) get a specific project
  * @method array getProjects(array $args = array()) get all projects (either archived or active)
+ * @method array getProjectsForTask(array $args = array())
  * @method array getProjectsInWorkspace(array $args = array()) get all projects in this workspace
  * @method array getProjectStories(array $args = array()) get all stories of a specific project
  * @method array getStory(array $args = array()) Showing a single story
@@ -39,8 +40,8 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
  * @method array getTasksInWorkspace(array $args = array())
  * @method array getTasksForTag(array $args = array())
  * @method array getTask(array $args = array())
- * @method array getProjectsForTask(array $args = array())
  * @method array getTaskStories(array $args = array()) get all stories of a specific task
+ * @method array getTeams(array $args = array()) get teams in an organization
  * @method array getUsers(array $args = array())
  * @method array getUsersWithEmail(array $args = array())
  * @method array getUser(array $args = array())
