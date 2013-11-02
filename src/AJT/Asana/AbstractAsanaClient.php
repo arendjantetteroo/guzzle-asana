@@ -25,8 +25,11 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
  * @method array createSubTask(array $args = array()) Creating a new subtask
  * @method array deleteProject(array $args = array())
  * @method array deleteTask(array $args = array())
+ * @method array getAttachment(array $args = array()) get a specific attachment
+ * @method array getAttachmentsForTask(array $args = array()) get all attachments for a specific task
  * @method array getProject(array $args = array()) get a specific project
  * @method array getProjects(array $args = array()) get all projects (either archived or active)
+ * @method array getProjectsForTask(array $args = array())
  * @method array getProjectsInWorkspace(array $args = array()) get all projects in this workspace
  * @method array getProjectStories(array $args = array()) get all stories of a specific project
  * @method array getStory(array $args = array()) Showing a single story
@@ -37,8 +40,8 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
  * @method array getTasksInWorkspace(array $args = array())
  * @method array getTasksForTag(array $args = array())
  * @method array getTask(array $args = array())
- * @method array getProjectsForTask(array $args = array())
  * @method array getTaskStories(array $args = array()) get all stories of a specific task
+ * @method array getTeams(array $args = array()) get teams in an organization
  * @method array getUsers(array $args = array())
  * @method array getUsersWithEmail(array $args = array())
  * @method array getUser(array $args = array())
@@ -52,6 +55,7 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
  * @method array updateProject(array $args = array()) Update project
  * @method array updateTag(array $args = array())
  * @method array updateTask(array $args = array())
+ * @method array uploadAttachment(array $args = array()) Upload an attachment to a task
  *
  */
 abstract class AbstractAsanaClient extends Client
