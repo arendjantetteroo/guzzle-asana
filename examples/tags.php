@@ -48,6 +48,7 @@ $tag = $asana_client->updateTag(
 	array(
 		'name'  	 => 'Updated Test tag',
 		'notes' 	 => "updated testing notes for tag",
+		'color'      => 'dark-blue',
 		'tag-id' => $tagid
 	)
 );
