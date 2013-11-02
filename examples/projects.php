@@ -26,8 +26,9 @@ print "createProject\n";
 $project = $asana_client->createProject(
 	array(
 		'name'  	  => 'Test Project',
-		'notes' 		  => "testing notes",
-		'workspace' 	  => $workspace_id,
+		'notes' 	  => "testing notes",
+		'workspace'   => $workspace_id,
+		'color'       => 'dark-blue'
 	)
 );
 print_r($project);
@@ -67,7 +68,8 @@ $project = $asana_client->updateProject(
 		'name'  	 => 'Updated Test Project',
 		'notes' 	 => "updated testing notes",
 		'archived'   => true, // If you don't want to archive, don't include this field
-		'project-id' => $projectid
+		'project-id' => $projectid,
+		'color'      => 'light-teal'
 	)
 );
 print_r($project);
@@ -104,7 +106,6 @@ $projects = $asana_client->getProjects(
 	)
 );
 print_r($projects);
-
 
 print "DeleteProject\n";
 $project = $asana_client->deleteProject(
