@@ -1,4 +1,7 @@
 <?php
+/**
+ * Get workspaces example script
+ */
 
 require dirname(__FILE__). '/../apikey.php';
 

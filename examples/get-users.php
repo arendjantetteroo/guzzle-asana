@@ -1,4 +1,7 @@
 <?php
+/**
+ * Get users example script
+ */
 
 require dirname(__FILE__). '/../apikey.php';
 

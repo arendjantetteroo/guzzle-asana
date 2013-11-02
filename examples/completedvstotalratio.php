@@ -1,8 +1,7 @@
 <?php
 /**
- * CRUD projects
+ * Get the completed vs the total ratio of all asana tasks
  * 
- * Create, get update and delete a project
  */
 
 require dirname(__FILE__). '/../apikey.php';
