@@ -84,6 +84,12 @@
                     "description": "Project ID",
                     "required": true,
                     "type": "integer"
+                },
+                "include_archived": {
+                    "location": "query",
+                    "description": "Include archived tasks?",
+                    "required": false,
+                    "type": "boolean"
                 }
             }
         },
