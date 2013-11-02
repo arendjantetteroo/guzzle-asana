@@ -761,6 +761,49 @@
                     "required": true
                 }
             }
+        },
+        "UploadAttachment": {
+            "httpMethod": "POST",
+            "uri": "tasks/{task-id}/attachments",
+            "summary": "Upload an attachment to a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true,
+                    "type": "integer"
+                },
+                "file": {
+                    "location": "postFile",
+                    "type": "string"
+                }
+            }
+        },
+        "GetAttachmentsForTask": {
+            "extends": "abstract",
+            "uri": "tasks/{task-id}/attachments",
+            "summary": "Showing all attachments on a task",
+            "parameters": {
+                "task-id": {
+                    "location": "uri",
+                    "description": "Task ID",
+                    "required": true,
+                    "type": "integer"
+                }
+            }
+        },
+        "GetAttachment": {
+            "extends": "abstract",
+            "uri": "attachments/{attachment-id}",
+            "summary": "Showing a single attachment",
+            "parameters": {
+                "attachment-id": {
+                    "location": "uri",
+                    "description": "Attachment ID",
+                    "required": true,
+                    "type": "integer"
+                }
+            }
         }
     }
 }
