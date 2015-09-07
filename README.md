@@ -1,3 +1,8 @@
+WARNING: Api keys are being deprecated by Asana. 
+
+Asana now also has an official API library for PHP: 
+https://github.com/Asana/php-asana
+
 guzzle-asana
 ============
 
